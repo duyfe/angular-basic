@@ -4,11 +4,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AdminModule } from './admin/admin.module'
 import { SharedModule } from './shared/shared.module'
+import { CoreModule } from './core/core.module'
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component'
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { HttpTokenInterceptor } from './core/interceptors/http.token.interceptor';
 
 @NgModule({
   declarations: [
@@ -19,11 +19,9 @@ import { HttpTokenInterceptor } from './core/interceptors/http.token.interceptor
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule,
-    AdminModule
-  ],
-  providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: HttpTokenInterceptor, multi: true }
+    CoreModule,
+    AdminModule,
+    SharedModule
   ],
   bootstrap: [AppComponent]
 })

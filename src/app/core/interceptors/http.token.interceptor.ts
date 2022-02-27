@@ -23,7 +23,6 @@ export class HttpTokenInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
    
     const token = this._jwtService.getToken()
-    console.log(token);
     
     if(!!token) {
       this.headers.set('Authorization', `Beare ${token}`)

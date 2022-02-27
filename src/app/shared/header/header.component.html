@@ -1,0 +1,14 @@
+<ul>
+  <li>
+    <a routerLink="/" routerLinkActive="active">Home</a>
+  </li>
+  <li *ngIf="!isAuthenticated">
+    <a routerLink="/login" routerLinkActive="active">Login</a>
+  </li>
+  <li *ngIf="isAuthenticated">
+    <a routerLink="/admin" routerLinkActive="active">{{currentUser.email}}</a>
+  </li>
+  <li *ngIf="isAuthenticated">
+    <a href="#" (click)="logout()">Logout</a>
+  </li>
+</ul>
